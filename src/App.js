@@ -12,6 +12,7 @@ function App() {
   const fieldGoal = e => {
     setScore(score + 3)
   }
+  
 
   return (
     <div className="container">
@@ -22,7 +23,7 @@ function App() {
 
             {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
 
-            <div className="home__score"><span>{score}</span></div>
+            <div className="home__score">{score}</div>
           </div>
           <div className="timer">00:03</div>
           <div className="away">
