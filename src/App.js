@@ -5,14 +5,20 @@ import BottomRow from "./BottomRow";
 
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
-  const [score, setScore] = useState(0);
-  const touchDown = e => {
-    setScore(score + 7)
+  const [homeScore, setHomeScore] = useState(0);
+  const hTouchDown = e => {
+    setHomeScore(homeScore + 7)
   }
-  const fieldGoal = e => {
-    setScore(score + 3)
+  const hFieldGoal = e => {
+    setHomeScore(homeScore + 3)
   }
-  
+  const [awayScore, setAwayScore] = useState(0);
+  const aTouchDown = e => {
+    setAwayScore(awayScore + 7)
+  }
+  const aFieldGoal = e => {
+    setAwayScore(awayScore + 3)
+  }
 
   return (
     <div className="container">
@@ -23,12 +29,12 @@ function App() {
 
             {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
 
-            <div className="home__score">{score}</div>
+            <div className="home__score">{homeScore}</div>
           </div>
           <div className="timer">00:03</div>
           <div className="away">
             <h2 className="away__name">Tigers</h2>
-            <div className="away__score">{score}</div>
+            <div className="away__score">{awayScore}</div>
           </div>
         </div>
         <BottomRow />
@@ -36,12 +42,12 @@ function App() {
       <section className="buttons">
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button onClick={touchDown} className="homeButtons__touchdown">Home Touchdown</button>
-          <button onClick={fieldGoal} className="homeButtons__fieldGoal">Home Field Goal</button>
+          <button onClick={hTouchDown} className="homeButtons__touchdown">Home Touchdown</button>
+          <button onClick={hFieldGoal} className="homeButtons__fieldGoal">Home Field Goal</button>
         </div>
         <div className="awayButtons">
-          <button onClick={touchDown} className="awayButtons__touchdown">Away Touchdown</button>
-          <button onClick={fieldGoal} className="awayButtons__fieldGoal">Away Field Goal</button>
+          <button onClick={aTouchDown} className="awayButtons__touchdown">Away Touchdown</button>
+          <button onClick={aFieldGoal} className="awayButtons__fieldGoal">Away Field Goal</button>
         </div>
       </section>
     </div>
