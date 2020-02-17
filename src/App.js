@@ -2,6 +2,8 @@
 import React, {useState} from "react";
 import "./App.css";
 import BottomRow from "./BottomRow";
+import Away from './components/Away';
+import Home from './components/Home';
 
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
@@ -28,13 +30,20 @@ function App() {
         <BottomRow />
       </section>
       <section className="buttons">
+        {/* <Away />
+        <Home /> */}
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
           <button onClick={()=> setHome(home + 3)} className="homeButtons__touchdown">Home Touchdown</button>
           <button onClick={()=> setHome(home + 7)} className="homeButtons__fieldGoal">Home Field Goal</button>
         </div>
         <div className="reset">
-          <button onClick={()=> setHome(0)}>New Game</button>
+          
+          {/* method i got to work for a reset button without help */}
+          {/* <button onMouseDown={()=> setHome(0)} onClick={()=>setAway(0)}>New Game</button> */}
+
+          {/* method i got for the reset button with help */}
+          <button onClick={()=> {setAway(0);setHome(0)}}>New Game</button>
         </div>
         <div className="awayButtons">
           <button onClick={()=> setAway(away + 3)} className="awayButtons__touchdown">Away Touchdown</button>
